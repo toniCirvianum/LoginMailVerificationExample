@@ -64,7 +64,7 @@ class userController extends Controller
             //generem el missatge per enviar al mail
             $mailer = new Mailer();
             $mailer->mailServerSetup();
-            $mailer->addRec();
+            $mailer->addRec($mail, $name);
             $mailer->addVerifyContent($newuser);
             $mailer->send();
 
