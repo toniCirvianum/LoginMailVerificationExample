@@ -15,15 +15,3 @@ Aquest projecte permet el registre d'usuaris amb verificació de correu electrò
    - Es fan les comprovacions pertinents, s'actualitza el model per marcar l'usuari com a verificat i s'elimina la variable `$_SESSION['user_registered']`.
 5. **Vista de verificació:** Després de verificar l'usuari, es carrega una vista amb la informació de l'usuari verificat per dirigir-lo a la vista de Login.
 6. **Login d'usuari:** A la vista de Login es comproven les credencials de l'usuari i si està verificat. Si tot és correcte, es desa la variable `$_SESSION['user_logged']` per indicar que l'usuari ha iniciat sessió correctament.
-
-## Requisits
-
-- PHP 7.4 o superior
-- Composer per gestionar **PHPMailer**
-- Servidor web compatible amb PHP
-
-## Instal·lació
-
-1. Clona aquest repositori al teu entorn local:
-   ```bash
-   git clone https://github.com/usuari/repo.git
