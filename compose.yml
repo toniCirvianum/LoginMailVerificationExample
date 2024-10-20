@@ -1,0 +1,10 @@
+services:
+ php:
+  build: .
+  volumes:
+    - ./:/var/www/html
+  expose:
+    - 80
+  ports:
+    - 80:80
+  command: ["bash", "-c", "a2enmod rewrite && apache2-foreground"]
