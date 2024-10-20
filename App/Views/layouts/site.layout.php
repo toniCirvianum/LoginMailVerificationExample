@@ -22,6 +22,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="btn btn-primary mx.-auto" href="#">Home</a>
+                <a class="btn btn-primary mx.-auto" href="/user/logout">Logout</a>
                 
 
             </div>
