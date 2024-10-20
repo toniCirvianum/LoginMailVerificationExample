@@ -8,7 +8,7 @@ class userController extends Controller
     {
         if (isset($_SESSION['user_logged']) && $_SESSION['user_logged'] != false) {
             $params['title'] = "My App";
-            $this->render("user/user", $params, "main");
+            $this->render("user/user", $params, "site");
         } else {
             $params['title'] = "Login";
             if (isset($_SESSION['error'])) { //si no hi ha error no fa falta passar res
@@ -123,10 +123,19 @@ class userController extends Controller
             } else {
                 //Si esta verificat afegim a la variable de sessio user_logged
                 $_SESSION['user_logged'] = $newUser;
-                $this->index();
-                return;
+                //carreguem la vista de l'usuari
+                $this->view();
+
+
             }
         }
+    }
+
+    public function view()
+    {
+        //carrega el user View
+        $this->index();
+        return;
     }
 
     public function logout()
@@ -158,7 +167,7 @@ class userController extends Controller
             $_SESSION['user_registered']['verificat'] = true;
             //actualitzem el model amb l'usuari verificat
             $userModel = new User();
-            $userModel-> updateItemById($_SESSION['user_registered']);
+            $userModel->updateItemById($_SESSION['user_registered']);
             //esborrem la variable de sessio user_registered
             unset($_SESSION['user_registered']);
             //cridem a la vista d'usuari verificat
