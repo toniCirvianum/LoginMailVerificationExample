@@ -55,12 +55,11 @@ class userController extends Controller
                 "verificat" => false,
                 "img_profile" => "A.jpg"
             ];
+            //Afegim l'usuari al model
+            $user->create($newuser);
             //variable per desar el nou usuari registrat
-            // $user->create($newuser);
             $_SESSION['user_registered'] = $newuser;
-            echo "<pre>";
-            print_r($_SESSION['user_registered']);
-            echo "</pre>";
+
             //generem el missatge per enviar al mail
             $mailer = new Mailer();
             $mailer->mailServerSetup();
@@ -157,14 +156,14 @@ class userController extends Controller
         //comprovem si els parametres que s'han enviat son correctes
         if ($username == $_SESSION['user_registered']['username'] && $token == $_SESSION['user_registered']['token']) {
             $_SESSION['user_registered']['verificat'] = true;
-            //gaurdem el nou usuari al model
-            $newUser = new User();
-            $newUser->create($_SESSION['user_registered']);
-            //l'afegim al usser_logged
-            $_SESSION['user_logged'] = $_SESSION['user_registered'];
-            //Esborrem la variable de sessio user_regitered
+            //actualitzem el model amb l'usuari verificat
+            $userModel = new User();
+            $userModel-> updateItemById($_SESSION['user_registered']);
+            //esborrem la variable de sessio user_registered
             unset($_SESSION['user_registered']);
-            $this->index();
+            //cridem a la vista d'usuari verificat
+            $params['title'] = "Usuari verificat";
+            $this->render("user/verified", $params, "main");
             return;
         } else {
             //si les credencials no son correctes

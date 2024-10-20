@@ -43,7 +43,7 @@
             <?php echo $params['message']; ?>
         </div>
         <div class="mb-3 center d-flex justify-content-center">
-      <a href="user/login" class="btn btn-primary"> Login</a>
+      <a href="/user/index" class="btn btn-primary"> Login</a>
     </div>
       <?php endif; ?>
     </div>
