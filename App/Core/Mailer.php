@@ -22,11 +22,11 @@ class Mailer extends PHPMailer
     }
 
     // function addRec($to, $cc = array(), $bcc = array())
-    function addRec()
+    function addRec($mail,$name)
     {
         $this->setFrom('phpmailer.'.MAIL,NAME_MAIL);
         // foreach ($to as $address) {
-            $this->addAddress(MAIL, NAME_MAIL);
+            $this->addAddress($mail, $name);
         // }
         // foreach ($cc as $address) {
         //     $this->addCC($address);
