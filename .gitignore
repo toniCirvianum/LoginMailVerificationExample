@@ -1,2 +1,9 @@
 /vendor
 /App/config.php
+
+
+# Exemple de les variables definides a config.php
+# define('URL', $_SERVER['REQUEST_URI']);
+# define('MAIL',"mail des d'on s'envien els correus de verificació");
+# define('CREDENTIAL_MAIL',"Credencial del mail");
+# define('NAME_MAIL',"Nom usuari del mail");
